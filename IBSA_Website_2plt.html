@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="IBSA 2 Plateaux : une école bilingue bienveillante et innovante à Abidjan.">
+  <title data-i18n="title">IBSA 2 Plateaux | Accueil</title>
+  <link rel="stylesheet" href="CSS_IBSA.css">
+  <link rel="stylesheet" href="themes.css">
+  <link rel="icon" type="image/png" href="Logo%20main%202%20IBSA%20peint%20à%20la%20main.png">
+</head>
+
+<!--
+  hero.jpg | classe.jpg | prematernelle.jpg | maternelle.jpg | primaire.jpg | secondaire.jpg
+  actu1.jpg | actu2.jpg | actu3.jpg | partenaire1.png ... partenaire5.png
+-->
+
+<body>
+
+  <div class="topbar">
+    <div class="conteneur topbar__contenu">
+      <span class="topbar__credit"> Page made by : <strong>Yassin, Ariane, Draymond</strong></span>
+
+      <div class="controles">
+        <label class="choix">
+          <span class="globe" aria-hidden="true">🌐</span>
+          <select id="lang-select" aria-label="Langue / Language / 语言">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+          </select>
+        </label>
+        <label class="choix">
+          <span class="pastille" aria-hidden="true"></span>
+          <select id="theme-select" aria-label="Thème / Theme / 主题">
+            <option value="clair" data-i18n="t1">Clair</option>
+            <option value="sombre" data-i18n="t2">Sombre</option>
+            <option value="nature" data-i18n="t3">Nature</option>
+            <option value="sunset" data-i18n="t4">Coucher de soleil</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </div>
+<header class="entete">
+    <div class="conteneur entete__contenu">
+
+      <a href="#accueil" class="logo">
+        <div class="placeholder--logo">
+          <img src="Logo%20main%202%20IBSA%20peint%20à%20la%20main.png" alt="Logo IBSA" height="284" width="385">
+        </div>
+        <span class="logo__nom">IBSA Secondary 2 Plateaux</span>
+      </a>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="burger" aria-label="Menu">☰</label>
+
+      <nav class="menu">
+        <ul>
+          <li><a href="#accueil" data-i18n="n1">Accueil</a></li>
+          <li><a href="#apropos" data-i18n="n2">À propos</a></li>
+          <li><a href="#cycles" data-i18n="n3">Nos cycles</a></li>
+          <li><a href="#raisons" data-i18n="n4">Pourquoi nous ?</a></li>
+          <li><a href="#actualites" data-i18n="n5">Actualités</a></li>
+          <li><a href="#contact" class="bouton bouton--petit" data-i18n="n6">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="accueil">
+      <div class="hero__fond placeholder">[IMAGE] Grande photo de l'école (1600 x 700 px)
+        <img src="images/hero.jpg" alt="Photo de l'école" onerror="this.style.display='none'">
+      </div>
+
+      <div class="conteneur hero__texte">
+        <h1 data-i18n="h1">Ouvrir tous les horizons,<br>avancer avec confiance</h1>
+        <p data-i18n="hp">Une école bilingue où chaque enfant est unique et peut révéler son plein potentiel.</p>
+        <a href="#contact" class="bouton" data-i18n="hb1">Inscrire mon enfant</a>
+        <a href="#apropos" class="bouton bouton--contour" data-i18n="hb2">En savoir plus</a>
+      </div>
+    </section>
+
+    <section class="chiffres">
+      <div class="conteneur grille grille--3">
+        <div class="chiffre">
+          <strong>+50</strong>
+          <span data-i18n="s1">Nationalités</span>
+        </div>
+        <div class="chiffre">
+          <strong data-i18n="s2">Dès 2 ans</strong>
+          <span data-i18n="s2l">Âge d'entrée</span>
+        </div>
+        <div class="chiffre">
+          <strong>FR / EN</strong>
+          <span data-i18n="s3l">Immersion bilingue</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="apropos">
+      <div class="conteneur deux-colonnes">
+
+        <div>
+          <h2 data-i18n="a_h">Bienvenue à IBSA 2 Plateaux</h2>
+          <p class="sous-titre" data-i18n="a_s">Un établissement à pédagogie innovante</p>
+          <p data-i18n="a_p1">Notre école est née de la volonté de parents et d'éducateurs de créer un lieu exigeant et bienveillant, où chaque enfant grandit en sécurité et développe ses talents.</p>
+          <p data-i18n="a_p2">Nos élèves apprennent à penser par eux-mêmes, à respecter les différences et à s'ouvrir au monde. Leur parcours est accompagné sur tous les plans : académique, social, créatif, scientifique, linguistique et sportif.</p>
+          <a href="#raisons" class="bouton" data-i18n="a_b">Découvrir notre différence</a>
+        </div>
+
+        <div class="placeholder placeholder--grand">[IMAGE] Élèves en classe (800 x 600 px)
+          <img src="images/classe.jpg" alt="Élèves en classe" onerror="this.style.display='none'">
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section section--gris" id="cycles">
+      <div class="conteneur">
+        <h2 class="centre" data-i18n="n3">Nos cycles</h2>
+        <p class="sous-titre centre" data-i18n="cy_s">De la toute petite enfance au lycée</p>
+
+        <div class="grille grille--4">
+          <article class="carte">
+            <div class="placeholder placeholder--carte">[IMAGE] Prématernelle
+              <img src="images/prematernelle.jpg" alt="Prématernelle" onerror="this.style.display='none'">
+            </div>
+            <h3 data-i18n="cy1">Prématernelle</h3>
+            <p data-i18n="cy1p">Éveil, jeux et découverte des premiers mots dans les deux langues.</p>
+          </article>
+
+          <article class="carte">
+            <div class="placeholder placeholder--carte">[IMAGE] Maternelle
+              <img src="images/maternelle.jpg" alt="Maternelle" onerror="this.style.display='none'">
+            </div>
+            <h3 data-i18n="cy2">Maternelle</h3>
+            <p data-i18n="cy2p">Premiers apprentissages, langage, motricité et vie en groupe.</p>
+          </article>
+
+          <article class="carte">
+            <div class="placeholder placeholder--carte">[IMAGE] Primaire
+              <img src="images/primaire.jpg" alt="Primaire" onerror="this.style.display='none'">
+            </div>
+            <h3 data-i18n="cy3">Primaire</h3>
+            <p data-i18n="cy3p">Bases solides en lecture, écriture, mathématiques et sciences.</p>
+          </article>
+
+          <article class="carte">
+            <div class="placeholder placeholder--carte">[IMAGE] Secondaire
+              <img src="images/secondaire.jpg" alt="Secondaire" onerror="this.style.display='none'">
+            </div>
+            <h3 data-i18n="cy4">Secondaire</h3>
+            <p data-i18n="cy4p">Préparation aux examens, orientation et projet personnel.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="raisons">
+      <div class="conteneur">
+        <h2 class="centre" data-i18n="r_h">Pourquoi choisir IBSA 2 Plateaux ?</h2>
+        <p class="sous-titre centre" data-i18n="r_s">Six raisons de nous faire confiance</p>
+
+        <div class="grille grille--3">
+          <div class="raison">
+            <span class="raison__icone">📚</span>
+            <h3 data-i18n="r1">Pédagogie active</h3>
+            <p data-i18n="r1p">Les élèves apprennent en pratiquant, par des projets concrets.</p>
+          </div>
+          <div class="raison">
+            <span class="raison__icone">🤝</span>
+            <h3 data-i18n="r2">Suivi personnalisé</h3>
+            <p data-i18n="r2p">Chaque enfant avance à son rythme, avec un accompagnement attentif.</p>
+          </div>
+          <div class="raison">
+            <span class="raison__icone">🌍</span>
+            <h3 data-i18n="r3">Langues</h3>
+            <p data-i18n="r3p">Immersion en français et en anglais dans un cadre multiculturel.</p>
+          </div>
+          <div class="raison">
+            <span class="raison__icone">🏆</span>
+            <h3 data-i18n="r4">Évaluations</h3>
+            <p data-i18n="r4p">Des évaluations régulières aux standards internationaux.</p>
+          </div>
+          <div class="raison">
+            <span class="raison__icone">🌳</span>
+            <h3 data-i18n="r5">Environnement</h3>
+            <p data-i18n="r5p">Un cadre sûr, calme et stimulant pour apprendre sereinement.</p>
+          </div>
+          <div class="raison">
+            <span class="raison__icone">🎓</span>
+            <h3 data-i18n="r6">Débouchés</h3>
+            <p data-i18n="r6p">Un parcours qui ouvre les portes des meilleures études.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="admission">
+      <div class="conteneur centre">
+        <h2 data-i18n="ad_h">Admissions ouvertes</h2>
+        <p data-i18n="ad_p">Les inscriptions sont ouvertes pour l'année scolaire 2026-2027. Notre équipe est à votre écoute.</p>
+        <a href="#contact" class="bouton bouton--blanc" data-i18n="hb3">Nous contacter</a>
+      </div>
+    </section>
+
+    <section class="section" id="actualites">
+      <div class="conteneur">
+        <h2 class="centre" data-i18n="n5">Actualités</h2>
+        <p class="sous-titre centre" data-i18n="ac_s">Ce qui se passe à l'école</p>
+
+        <div class="grille grille--3">
+          <article class="carte">
+            <div class="placeholder placeholder--carte">[IMAGE] Actualité 1
+              <img src="images/actu1.jpg" alt="Actualité 1" onerror="this.style.display='none'">
+            </div>
+            <time datetime="2026-10-01" data-i18n="ac1d">1 octobre 2026</time>
+            <h3 data-i18n="ac1">Rentrée scolaire réussie</h3>
+            <p data-i18n="ac1p">Retour sur une rentrée pleine d'énergie et de sourires.</p>
+            <a href="#" class="lien" data-i18n="more">Lire la suite »</a>
+          </article>
+
+          <article class="carte">
+            <div class="placeholder placeholder--carte">[IMAGE] Actualité 2
+              <img src="images/actu2.jpg" alt="Actualité 2" onerror="this.style.display='none'">
+            </div>
+            <time datetime="2026-10-12" data-i18n="ac2d">12 octobre 2026</time>
+            <h3 data-i18n="ac2">Journée sportive</h3>
+            <p data-i18n="ac2p">Les élèves se sont affrontés dans la bonne humeur.</p>
+            <a href="#" class="lien" data-i18n="more">Lire la suite »</a>
+          </article>
+
+          <article class="carte">
+            <div class="placeholder placeholder--carte">[IMAGE] Actualité 3
+              <img src="images/actu3.jpg" alt="Actualité 3" onerror="this.style.display='none'">
+            </div>
+            <time datetime="2026-10-20" data-i18n="ac3d">20 octobre 2026</time>
+            <h3 data-i18n="ac3">Atelier de lecture bilingue</h3>
+            <p data-i18n="ac3p">Un moment d'échange autour des livres en français et en anglais.</p>
+            <a href="#" class="lien" data-i18n="more">Lire la suite »</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--gris">
+      <div class="conteneur newsletter">
+        <h2 data-i18n="nl_h">Abonnez-vous à notre newsletter</h2>
+        <p data-i18n="nl_p">Recevez les nouvelles et les événements de l'école.</p>
+        <form class="formulaire-inline">
+          <label for="email-news" class="cache" data-i18n="nl_l">Votre e-mail</label>
+          <input type="email" id="email-news" placeholder="Votre adresse e-mail" data-i18n-ph="nl_ph" required>
+          <button type="submit" class="bouton" data-i18n="send">Envoyer</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="conteneur">
+        <h2 class="centre" data-i18n="pa_h">Nos partenaires</h2>
+        <div class="partenaires">
+          <div class="placeholder placeholder--logo-partenaire">Logo 1
+            <img src="images/partenaire1.png" alt="Partenaire 1" onerror="this.style.display='none'">
+          </div>
+          <div class="placeholder placeholder--logo-partenaire">Logo 2
+            <img src="images/partenaire2.png" alt="Partenaire 2" onerror="this.style.display='none'">
+          </div>
+          <div class="placeholder placeholder--logo-partenaire">Logo 3
+            <img src="images/partenaire3.png" alt="Partenaire 3" onerror="this.style.display='none'">
+          </div>
+          <div class="placeholder placeholder--logo-partenaire">Logo 4
+            <img src="images/partenaire4.png" alt="Partenaire 4" onerror="this.style.display='none'">
+          </div>
+          <div class="placeholder placeholder--logo-partenaire">Logo 5
+            <img src="images/partenaire5.png" alt="Partenaire 5" onerror="this.style.display='none'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--gris" id="contact">
+      <div class="conteneur deux-colonnes">
+
+        <div>
+          <h2 data-i18n="ct_h">Contactez-nous</h2>
+          <p data-i18n="ct_p">Une question ? Écrivez-nous, nous vous répondrons rapidement.</p>
+          <address data-i18n="ct_adr">
+            📍 II Plateaux, Cocody, Abidjan (Côte d'Ivoire)<br>
+            📞 +225 unknown number<br>
+            ✉️ unknown email
+          </address>
+          
+          <div class="carte-map">
+            <iframe src="https://www.google.com/maps?q=5.3923958,-3.9849824&z=17&output=embed"
+                    title="Localisation de l'école" loading="lazy" allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=5.3923958,-3.9849824"
+             target="_blank" rel="noopener" class="lien" data-i18n="map_l">📍 Ouvrir dans Google Maps</a>
+        </div>
+
+        <form class="formulaire">
+          <label for="nom" data-i18n="ct_n">Nom complet</label>
+          <input type="text" id="nom" name="nom" required>
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit" class="bouton" data-i18n="ct_b">Envoyer le message</button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur grille grille--4">
+      <div>
+        <h3>IBSA 2 Plateaux</h3>
+        <p data-i18n="f_p">Une école bilingue, bienveillante et ambitieuse.</p>
+      </div>
+      <div>
+        <h3>Admission</h3>
+        <ul>
+          <li><a href="#contact" data-i18n="f_a1">Bureau d'admission</a></li>
+          <li><a href="#contact" data-i18n="f_a2">Tarifs</a></li>
+          <li><a href="#contact" data-i18n="f_a3">Formulaire</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="f_vie">Vie scolaire</h3>
+        <ul>
+          <li><a href="#actualites" data-i18n="n5">Actualités</a></li>
+          <li><a href="#" data-i18n="f_v2">Galerie</a></li>
+          <li><a href="#" data-i18n="f_v3">Calendrier</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="f_suiv">Suivez-nous</h3>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="conteneur credits">
+      <p class="credits__titre">Created by</p>
+      <ul class="credits__liste">
+        <li>Ariane</li>
+        <li>Draymond</li>
+        <li>Yassin</li>
+      </ul>
+    </div>
+    <p class="pied__copyright" data-i18n="f_copy">&copy; 2026 IBSA 2 Plateaux. Tous droits réservés.</p>
+  </footer>
+
+  <script src="Script1.js"></script>
+</body>
+</html>
