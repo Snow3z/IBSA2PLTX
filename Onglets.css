@@ -1,0 +1,155 @@
+/* ===== onglets.css : navigation par onglets, équipe, Dev Log ===== */
+
+/* --- Onglets : un seul visible à la fois --- */
+.onglet { display: none; }
+.onglet.actif { display: block; animation: entree 0.3s ease; }
+@keyframes entree { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .onglet.actif { animation: none; } }
+
+/* Onglet actif dans le menu */
+.menu a[aria-current=page]:not(.bouton) { color: var(--couleur-principale); box-shadow: inset 0 -3px 0 var(--couleur-accent); }
+.menu .bouton[aria-current=page] { outline: 3px solid var(--couleur-accent); outline-offset: 2px; }
+
+/* --- Filtres (puces) --- */
+.puces { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 1.2rem 0 2rem; }
+.puce {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--bordure-champ);
+  background: var(--fond-carte);
+  color: var(--couleur-texte);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.puce:hover { border-color: var(--couleur-principale); }
+.puce[aria-pressed=true] { background: var(--couleur-principale); border-color: var(--couleur-principale); color: #fff; }
+.puce:focus-visible { outline: 3px solid var(--couleur-accent); outline-offset: 2px; }
+
+/* --- Équipe --- */
+.equipe-grille { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1.2rem; }
+.staff {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.4rem 1rem;
+  font: inherit;
+  text-align: center;
+  color: inherit;
+  background: var(--fond-carte);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon, 14px);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.staff:hover { transform: translateY(-4px); border-color: var(--couleur-principale); box-shadow: var(--ombre); }
+.staff:focus-visible { outline: 3px solid var(--couleur-accent); outline-offset: 3px; }
+.staff h3 { margin: 0.4rem 0 0; font-size: 1.05rem; }
+.staff__role { color: var(--texte-doux); font-size: 0.9rem; }
+
+.avatar {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-fonce));
+}
+.avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* --- Fiche détaillée (fenêtre) --- */
+.fiche {
+  position: fixed;
+  width: 100%;
+  max-width: min(92vw, 440px);
+  padding: 2rem;
+  text-align: center;
+  color: var(--couleur-texte);
+  background: var(--fond-carte);
+  border: 0;
+  border-radius: var(--rayon, 14px);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
+}
+.fiche::backdrop { background: rgba(10, 20, 35, 0.6); }
+.fiche form { margin: 0; }
+.fiche__fermer {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  width: 2rem;
+  height: 2rem;
+  font: inherit;
+  color: var(--couleur-texte);
+  background: transparent;
+  border: 1px solid var(--bordure-champ);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.fiche__fermer:hover { border-color: var(--couleur-principale); }
+.fiche .avatar { width: 120px; height: 120px; font-size: 2rem; margin: 0 auto 0.8rem; }
+.fiche h3 { margin: 0; }
+.staff__langues { color: var(--texte-doux); font-size: 0.9rem; }
+
+/* --- Dev Log : timeline --- */
+.timeline { list-style: none; max-width: 760px; margin: 0 auto; padding: 0 0 0 1.6rem; border-left: 3px solid var(--bordure); }
+.version { position: relative; padding: 0 0 2.2rem 1.4rem; }
+.version::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.6rem - 8.5px);
+  top: 0.35rem;
+  box-sizing: content-box;
+  width: 8px;
+  height: 8px;
+  border: 3px solid var(--fond);
+  border-radius: 50%;
+  background: var(--couleur-principale);
+}
+.version__tete { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+.version__num { font-size: 1.15rem; font-weight: 700; color: var(--couleur-principale); }
+.version__date { color: var(--texte-doux); font-size: 0.9rem; }
+.version h3 { margin: 0.4rem 0 0.3rem; }
+.version ul { margin: 0; padding-left: 1.1rem; }
+
+.tag {
+  --c: var(--couleur-principale);
+  padding: 0.12rem 0.6rem;
+  font-size: 0.75rem;
+  color: var(--couleur-texte);
+  border: 1px solid var(--c);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--c) 15%, transparent);
+}
+.tag--nouveau { --c: var(--couleur-vert, #1b6e43); }
+.tag--ameliore { --c: var(--couleur-principale); }
+.tag--corrige { --c: var(--couleur-accent); }
+.tag--bug { --c: var(--couleur-bleu,#2288BF); }
+
+#version-site { color: inherit; opacity: 0.8; }
+
+/* --- Sous-onglets de "L'école" --- */
+.onglet .sous-onglet { display: none; }
+.onglet .sous-onglet.actif { display: block; }
+.sous-nav { margin-bottom: 0; padding-top: 1rem; }
+
+/* --- Signaler un bug --- */
+.bug {
+  max-width: 760px;
+  margin: 3rem auto 0;
+  padding: 1.6rem;
+  background: var(--fond-carte);
+  border: 1px solid var(--bordure);
+  border-top: 5px solid var(--couleur-accent);
+  border-radius: var(--rayon);
+}
+.bug h3 { margin-bottom: 0; }
+.bug .sous-titre { margin-bottom: 0.6rem; }
+.bug__etat { margin: 0.4rem 0 0; font-weight: 600; }
