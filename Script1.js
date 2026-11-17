@@ -1,4 +1,4 @@
-﻿/* ===== script.js : langue + thème ===== */
+/* ===== script.js : langue + thème ===== */
 
 /* Traductions. Le français = le texte déjà écrit dans le HTML.
    Pour ajouter une langue : copie le bloc "en", renomme-le (ex: "es"),
