@@ -1,0 +1,174 @@
+/* ===== deco.css : le côté "stylé" (à charger EN DERNIER) =====
+   Tout passe par les variables des thèmes : ça marche en clair, sombre, nature et sunset.
+   Pour tout annuler : retire simplement la ligne <link> de deco.css dans index.html. */
+
+:root {
+  --police-titre: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --police-texte: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --rayon: 22px;
+  --ombre: 0 22px 44px -22px color-mix(in srgb, var(--couleur-principale) 55%, transparent);
+}
+body { font-family: var(--police-texte); line-height: 1.65; }
+h1, h2, h3, h4, .logo__nom, .version__num { font-family: var(--police-titre); letter-spacing: -0.02em; }
+html[lang=zh] h1, html[lang=zh] h2, html[lang=zh] h3, html[lang=zh] h4, html[lang=zh] .logo__nom {
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif; letter-spacing: 0;
+}
+::selection { background: var(--couleur-accent); color: #1b1b1b; }
+
+/* --- Header : collé en haut, verre dépoli --- */
+.entete {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--fond-carte) 80%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--bordure);
+}
+.menu a:not(.bouton) { border-radius: 999px; padding: 0.45rem 0.95rem; transition: background 0.2s, color 0.2s; }
+.menu a:not(.bouton):hover { background: color-mix(in srgb, var(--couleur-principale) 12%, transparent); }
+.menu a[aria-current=page]:not(.bouton) {
+  background: color-mix(in srgb, var(--couleur-principale) 16%, transparent); box-shadow: none;
+}
+
+/* --- Hero : grand, avec courbe en bas --- */
+.hero { position: relative; overflow: hidden; isolation: isolate; display: flex; align-items: center; min-height: min(80vh, 700px); padding: 4rem 0 6rem; }
+.hero::before {                       /* halo chaud qui donne de la profondeur */
+  content: ""; position: absolute; z-index: 1; right: -8%; top: -20%; width: 55vw; height: 55vw; max-width: 640px; max-height: 640px;
+  border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--couleur-accent) 55%, transparent), transparent 68%);
+  pointer-events: none;
+}
+.hero::after {                        /* la courbe qui fond le hero dans la page */
+  content: ""; position: absolute; z-index: 1; left: -10%; right: -10%; bottom: -70px; height: 120px;
+  background: var(--fond); border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+.hero__texte { position: relative; z-index: 2; width: 100%; color: #fff; }
+.hero h1 { max-width: 15ch; font-size: clamp(2.5rem, 7vw, 4.8rem); font-weight: 800; line-height: 1.04; margin-bottom: 1.2rem; }
+.hero__texte p { max-width: 36ch; font-size: clamp(1.05rem, 2.2vw, 1.3rem); margin-bottom: 2rem; }
+.hero__texte > * { animation: monte 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.hero__texte > :nth-child(2) { animation-delay: 0.12s; }
+.hero__texte > :nth-child(n+3) { animation-delay: 0.24s; }
+@keyframes monte { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+
+/* --- Chiffres : carte flottante qui chevauche le hero --- */
+.chiffres { position: relative; z-index: 3; margin-top: -3.2rem; padding: 0 1rem; background: transparent; }
+.chiffres .conteneur {
+  padding: 1.6rem 1rem; text-align: center;
+  background: var(--fond-carte); border: 1px solid var(--bordure); border-radius: var(--rayon); box-shadow: var(--ombre);
+}
+.chiffre strong { display: block; font-family: var(--police-titre); font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.1; color: var(--couleur-principale); }
+.chiffre span { color: var(--texte-doux); }
+
+/* --- Sections et titres --- */
+.section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+.section h2, .admission h2 { font-size: clamp(1.9rem, 4.5vw, 3rem); font-weight: 800; line-height: 1.1; }
+.sous-titre { font-size: 1.1rem; }
+
+/* --- Cartes (cycles, actus) --- */
+.carte {
+  overflow: hidden; border: 1px solid var(--bordure); border-radius: var(--rayon);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.carte:hover { transform: translateY(-6px); box-shadow: var(--ombre); border-color: var(--couleur-principale); }
+.carte .placeholder img { transition: transform 0.5s ease; }
+.carte:hover .placeholder img { transform: scale(1.07); }
+
+/* --- Les 6 raisons --- */
+.raison {
+  padding: 1.8rem 1.5rem; background: var(--fond-carte); border: 1px solid var(--bordure); border-radius: var(--rayon);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.raison:hover { border-color: var(--couleur-principale); box-shadow: var(--ombre); }
+.raison__icone {
+  display: grid; place-items: center; width: 3.6rem; height: 3.6rem; margin-bottom: 0.9rem;
+  font-size: 1.7rem; border-radius: 18px; background: color-mix(in srgb, var(--couleur-principale) 14%, transparent);
+}
+
+/* --- Bannière admissions : grand bloc coloré arrondi --- */
+.admission { padding: clamp(2rem, 5vw, 4rem) 1rem; background: transparent; }
+.admission .conteneur {
+  position: relative; overflow: hidden; padding: clamp(2.2rem, 6vw, 4rem) 1.5rem; color: #fff;
+  background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-fonce)); border-radius: calc(var(--rayon) * 1.6);
+}
+.admission .conteneur::after {
+  content: ""; position: absolute; right: -80px; bottom: -110px; width: 320px; height: 320px; border-radius: 50%;
+  background: color-mix(in srgb, var(--couleur-accent) 40%, transparent); pointer-events: none;
+}
+.admission .conteneur > * { position: relative; z-index: 1; }
+.admission h2, .admission p { color: #fff; }
+
+/* --- Champs de formulaire --- */
+input, textarea { padding: 0.8rem 1.1rem; border-width: 1.5px; border-radius: 16px; transition: border-color 0.2s, box-shadow 0.2s; }
+input:focus, textarea:focus {
+  outline: none; border-color: var(--couleur-principale);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--couleur-principale) 22%, transparent);
+}
+
+/* --- Équipe et Dev Log --- */
+.staff { border-radius: var(--rayon); padding: 1.8rem 1rem; }
+.avatar { box-shadow: 0 0 0 4px var(--fond-carte), 0 0 0 7px var(--couleur-accent); margin-bottom: 0.4rem; }
+.fiche { border-radius: calc(var(--rayon) * 1.3); }
+.version { transition: transform 0.2s; }
+.version:hover { transform: translateX(4px); }
+
+/* --- Pied de page --- */
+.pied a { transition: color 0.2s; }
+.pied a:hover { color: var(--couleur-accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__texte > *, .carte, .carte .placeholder img, .version { animation: none; transition: none; }
+}
+
+/* ===== PALETTES EN GROUPE : chaque zone prend une couleur du groupe ===== */
+h1, h2, h3, h4, .logo__nom, .lien, .burger, .version__num { color: var(--couleur-lien); }
+.staff h3, .fiche h3 { color: var(--couleur-texte); }
+.menu a:not(.bouton):hover { color: var(--couleur-lien); }
+
+/* Hero : dégradé du thème + deux halos (accent et tierce) */
+.hero__fond { background: var(--degrade-hero); }
+.hero__fond::before {
+  content: ""; position: absolute; left: -12%; bottom: -35%; width: 52vw; height: 52vw; max-width: 600px; max-height: 600px;
+  border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--couleur-tierce) 50%, transparent), transparent 65%);
+}
+
+/* Chiffres : une couleur par chiffre */
+.chiffre::before {
+  content: ""; display: block; width: 2.6rem; height: 5px; margin: 0 auto 0.7rem; border-radius: 5px;
+  background: var(--c, var(--couleur-principale));
+}
+.chiffre:nth-child(1) { --c: var(--couleur-principale); }
+.chiffre:nth-child(2) { --c: var(--couleur-accent); }
+.chiffre:nth-child(3) { --c: var(--couleur-second); }
+.chiffre strong { color: var(--couleur-lien); }
+
+/* Cartes : un liseré de couleur différent par carte */
+.carte { border-top: 5px solid var(--c, var(--couleur-principale)); }
+.carte:hover { border-color: var(--c, var(--couleur-principale)); }
+#cycles .carte:nth-child(1) { --c: var(--couleur-tierce); }
+#cycles .carte:nth-child(2) { --c: var(--couleur-accent); }
+#cycles .carte:nth-child(3) { --c: var(--couleur-second); }
+#cycles .carte:nth-child(4) { --c: var(--couleur-principale); }
+#actualites .carte:nth-child(3n+1) { --c: var(--couleur-principale); }
+#actualites .carte:nth-child(3n+2) { --c: var(--couleur-accent); }
+#actualites .carte:nth-child(3n)   { --c: var(--couleur-second); }
+
+/* Les 6 raisons : trois couleurs en alternance */
+.raison:nth-child(3n+1) { --c: var(--couleur-principale); }
+.raison:nth-child(3n+2) { --c: var(--couleur-accent); }
+.raison:nth-child(3n)   { --c: var(--couleur-second); }
+.raison:hover { border-color: var(--c); }
+.raison__icone { background: color-mix(in srgb, var(--c, var(--couleur-principale)) 20%, transparent); }
+
+/* Admission : dégradé complémentaire + deux bulles */
+.admission .conteneur { background: var(--degrade-admission); }
+.admission .conteneur::before {
+  content: ""; position: absolute; left: -90px; top: -100px; width: 260px; height: 260px; border-radius: 50%;
+  background: color-mix(in srgb, var(--couleur-tierce) 35%, transparent); pointer-events: none;
+}
+
+/* Équipe */
+.avatar { background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-second)); }
+
+/* Pied de page : liseré aux 4 couleurs du thème */
+.pied {
+  background: linear-gradient(170deg, var(--couleur-fonce), color-mix(in srgb, var(--couleur-fonce) 65%, #000));
+  border-top: 6px solid transparent;
+  border-image: linear-gradient(90deg, var(--couleur-principale), var(--couleur-accent), var(--couleur-second), var(--couleur-tierce)) 1;
+}
