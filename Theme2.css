@@ -1,0 +1,268 @@
+/* ===== theme.css : thèmes + styles (à charger APRÈS CSS_IBSA.css) ===== */
+
+/* ===== PALETTES =====
+   Chaque thème = un groupe de couleurs qui vont ensemble :
+   principale = identité (boutons, liens)   fonce = profondeur (header, footer)
+   accent     = mise en avant (CTA, détails) second = complémentaire (bannière, badges)
+   tierce     = touche douce (icônes, pastilles)   lien = principale lisible en texte
+   + des surfaces (fond, cartes, bordures) teintées de la même famille. */
+
+/* --- CLAIR : bleu océan + orange soleil + vert lagon --- */
+:root {
+  --couleur-principale: #1d5fa6;
+  --couleur-lien:       #1d5fa6;
+  --couleur-fonce:      #0e2f55;
+  --couleur-accent:     #f39c2d;
+  --couleur-second:     #168a69;
+  --couleur-tierce:     #5aa9e6;
+  --couleur-vert:       var(--couleur-second);
+  --couleur-texte:      #22303f;
+  --couleur-gris:       #eef4fb;
+  --fond:               #ffffff;
+  --fond-carte:         #ffffff;
+  --texte-doux:         #5b6b7d;
+  --bordure:            #dde6f0;
+  --bordure-champ:      #c5d2e1;
+  --ph1: #dde8f4;  --ph2: #e9f0f8;  --ph-texte: #5f7287;
+  --degrade-hero:       linear-gradient(135deg, #0e2f55 0%, #1d5fa6 58%, #168a69 135%);
+  --degrade-admission:  linear-gradient(135deg, #168a69, #0e2f55);
+}
+
+/* --- SOMBRE : nuit bleue + ambre + menthe + violet doux --- */
+html[data-theme=sombre] {
+  --couleur-principale: #2f6fcf;
+  --couleur-lien:       #7db4f5;
+  --couleur-fonce:      #081120;
+  --couleur-accent:     #ffb454;
+  --couleur-second:     #35c2a0;
+  --couleur-tierce:     #a58bfa;
+  --couleur-texte:      #e6ebf2;
+  --couleur-gris:       #111b2b;
+  --fond:               #0c1422;
+  --fond-carte:         #152133;
+  --texte-doux:         #9fb0c5;
+  --bordure:            #25374f;
+  --bordure-champ:      #34465e;
+  --ph1: #1b2a3f;  --ph2: #223249;  --ph-texte: #8fa0b5;
+  --ombre: 0 8px 22px rgba(0, 0, 0, 0.5);
+  --degrade-hero:       linear-gradient(135deg, #081120 0%, #1b3f7a 60%, #3a2f7a 135%);
+  --degrade-admission:  linear-gradient(135deg, #1c6f66, #14284a);
+}
+
+/* --- NATURE : vert forêt + mousse + or + terre cuite --- */
+html[data-theme=nature] {
+  --couleur-principale: #2f7a55;
+  --couleur-lien:       #25664a;
+  --couleur-fonce:      #17402d;
+  --couleur-accent:     #e3a62b;
+  --couleur-second:     #5d8a45;
+  --couleur-tierce:     #c9683b;
+  --couleur-texte:      #1f2b23;
+  --couleur-gris:       #ecf2e4;
+  --fond:               #f8f7ef;
+  --fond-carte:         #fffefa;
+  --texte-doux:         #5c6a5a;
+  --bordure:            #d8e1c8;
+  --bordure-champ:      #bccaa6;
+  --ph1: #dfe9d0;  --ph2: #ebf2e0;  --ph-texte: #62745e;
+  --degrade-hero:       linear-gradient(135deg, #17402d 0%, #2f7a55 60%, #7ea35a 135%);
+  --degrade-admission:  linear-gradient(135deg, #5d8a45, #17402d);
+}
+
+/* --- COUCHER DE SOLEIL : prune + rouge brûlé + ambre + rose + violet --- */
+html[data-theme=sunset] {
+  --couleur-principale: #c4442a;
+  --couleur-lien:       #b13a22;
+  --couleur-fonce:      #38173a;
+  --couleur-accent:     #f6a93b;
+  --couleur-second:     #7a4b94;
+  --couleur-tierce:     #e7739a;
+  --couleur-texte:      #35232b;
+  --couleur-gris:       #fdeee3;
+  --fond:               #fff8f3;
+  --fond-carte:         #fffdfb;
+  --texte-doux:         #7a5f63;
+  --bordure:            #f1d9cb;
+  --bordure-champ:      #e4c3b1;
+  --ph1: #f6e2d3;  --ph2: #fbeee3;  --ph-texte: #8a6a62;
+  --degrade-hero:       linear-gradient(135deg, #38173a 0%, #c4442a 72%, #f6a93b 138%);
+  --degrade-admission:  linear-gradient(135deg, #7a4b94, #38173a);
+}
+
+/* --- Application des variables sur les couleurs écrites "en dur" --- */
+body { background: var(--fond); transition: background 0.3s, color 0.3s; }
+.entete, .carte, .menu { background: var(--fond-carte); }
+.sous-titre, .carte time { color: var(--texte-doux); }
+.raison { border-color: var(--bordure); }
+
+input, textarea {
+  background: var(--fond-carte);
+  color: var(--couleur-texte);
+  border-color: var(--bordure-champ);
+}
+
+.placeholder {
+  position: relative;
+  overflow: hidden;
+  background: repeating-linear-gradient(45deg, var(--ph1), var(--ph1) 10px, var(--ph2) 10px, var(--ph2) 20px);
+  color: var(--ph-texte);
+}
+.hero__fond {
+  position: absolute;
+  background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-fonce));
+  color: rgba(255, 255, 255, 0.5);
+}
+.hero__fond::after {            /* voile pour garder le texte lisible sur une photo */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 30, 60, 0.45);
+}
+
+/* --- Images dans les cadres : elles recouvrent le placeholder --- */
+.placeholder img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--fond-carte);
+}
+.placeholder--logo-partenaire img { object-fit: contain; padding: 0.5rem; }
+
+/* --- Barre du haut : crédits à gauche, langue + thème à droite --- */
+.topbar {
+  background: linear-gradient(90deg, var(--couleur-fonce), var(--couleur-principale));
+  padding: 0.5rem 0;
+}
+.topbar__contenu { justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem; }
+.topbar__credit strong { color: var(--couleur-accent); }
+.controles { display: flex; gap: 0.6rem; }
+.choix {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0.3rem 0.15rem 0.7rem;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  transition: background 0.2s;
+}
+.choix:hover, .choix:focus-within { background: rgba(255, 255, 255, 0.26); }
+.choix select {
+  background: transparent;
+  color: var(--couleur-blanc);
+  border: 0;
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.4rem;
+  cursor: pointer;
+}
+.choix select:focus-visible { outline: 2px solid var(--couleur-accent); border-radius: 50px; }
+.choix select option { color: #222; background: #fff; }
+.pastille {              /* pastille qui reprend les couleurs du thème actif */
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: linear-gradient(135deg, var(--couleur-principale) 50%, var(--couleur-accent) 50%);
+}
+
+html[lang=zh] body { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Segoe UI", sans-serif; }
+
+@media (max-width: 640px) {
+  .topbar__contenu { justify-content: center; }
+}
+
+/* --- Carte de localisation --- */
+.carte-map {
+  border-radius: var(--rayon);
+  overflow: hidden;
+  box-shadow: var(--ombre);
+  margin-bottom: 0.8rem;
+}
+.carte-map iframe { display: block; width: 100%; height: 280px; border: 0; }
+html[data-theme=sombre] .carte-map iframe { filter: invert(0.9) hue-rotate(180deg); }
+
+/* ===== BOUTONS ===== */
+.bouton {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.8rem;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-fonce));
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px -8px var(--couleur-principale), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+.bouton::before {                 /* reflet qui traverse le bouton au survol */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+.bouton:hover {
+  background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-fonce));
+  transform: translateY(-3px);
+  filter: brightness(1.12);
+  box-shadow: 0 14px 26px -10px var(--couleur-principale), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.bouton:hover::before { left: 130%; }
+.bouton:active { transform: translateY(-1px) scale(0.98); }
+.bouton:focus-visible { outline: 3px solid var(--couleur-accent); outline-offset: 3px; }
+
+.bouton--petit { padding: 0.55rem 1.3rem; font-size: 0.95rem; }
+
+.bouton--contour, .bouton--contour:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: none;
+  backdrop-filter: blur(4px);
+}
+.bouton--contour:hover {
+  background: #fff;
+  color: var(--couleur-principale);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.45);
+}
+
+.bouton--blanc, .bouton--blanc:hover {
+  background: #fff;
+  color: var(--couleur-principale);
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.4);
+}
+.bouton--blanc:hover { background: var(--couleur-accent); color: #1b1b1b; }
+
+.hero .bouton:not(.bouton--contour), .hero .bouton:not(.bouton--contour):hover {
+  background: linear-gradient(135deg, var(--couleur-accent), #ffc15e);
+  color: #1b1b1b;
+  box-shadow: 0 10px 24px -8px var(--couleur-accent), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.formulaire .bouton { align-self: flex-start; margin-top: 0.5rem; }
+
+/* ===== Menus langue / thème ===== */
+.choix select {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 1.5rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 0.5rem center;
+}
+
+.hero__fond { font-size: 0; }
